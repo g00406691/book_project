@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+/* Navigation Bar CSS */
+
+/* The navbar */
+.book-navbar {
+  background-color: #2c3e50; /* Dark navy */
+  border-bottom: 2px solid #f39c12; /* Accent color */
+}
+
+/* Styling the brand to stand out */
+.book-navbar-brand {
+  font-family: 'Georgia', serif; /* Font style */
+  font-size: 1.5rem;
+  color: #f39c12 !important; /* Gold color for a classic feel */
+  margin-right: auto;
+}
+
+.book-nav-center {
+  margin: 0 auto; /* This will center the Nav container */
+  display: flex; 
+  justify-content: center; /* Ensure links stay centered horizontally */
+}
+
+/* Style nav links to match the theme */
+.book-nav-link {
+  font-family: 'Georgia', serif;
+  color: #ecf0f1 !important; /* Light text on dark background */
+  margin: 0 1rem;
+}
+
+.book-nav-link:hover {
+  text-decoration: underline;
+  color: #f39c12 !important; /* Highlighting with the accent color on hover */
+}
