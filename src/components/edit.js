@@ -1,49 +1,48 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Edit = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const [title, setTitle] = useState('');
-    const [year, setYear] = useState('');
-    const [poster, setPoster] = useState('');
+    const [author, setAuthor] = useState('');
+    const [genre, setGenre] = useState('');
+    const [coverImage, setCoverImage] = useState('');
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        axios.get('http://localhost:4000/api/movie/'+id)
-        .then((res)=>{
-            console.log("sucess "+res.data);
-            setTitle(res.data.title);
-            setYear(res.data.year);
-            setPoster(res.data.poster);
-        })
-        .catch((err)=>{console.log(err)});
-    },[id]);
-
+    useEffect(() => {
+        axios.get('http://localhost:4000/api/book/' + id)
+            .then((res) => {
+                console.log("Success: " + res.data);
+                setTitle(res.data.title);
+                setAuthor(res.data.author);
+                setGenre(res.data.genre);
+                setCoverImage(res.data.coverImage);
+            })
+            .catch((err) => { console.log(err) });
+    }, [id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const movie = {title,year,poster};
-        console.log(movie);
+        const updatedBook = { title, author, genre, coverImage };
+        console.log(updatedBook);
 
-        axios.put('http://localhost:4000/api/movie/'+id, movie)
-        .then((res)=>{
-            console.log("Edited: "+res.data);
-            navigate('/read');
-        })
-        .catch((err)=>{
-            console.log(err);
-        });
-      
+        axios.put('http://localhost:4000/api/book/' + id, updatedBook)
+            .then((res) => {
+                console.log("Edited: " + res.data);
+                navigate('/read');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     return (
         <div>
-            <h3>Hello from edit component!</h3>
+            <h3>Edit Book Details</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Edit Movie Title: </label>
+                    <label>Edit Book Title: </label>
                     <input type="text"
                         className="form-control"
                         value={title}
@@ -51,23 +50,31 @@ const Edit = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Edit Movie Year: </label>
+                    <label>Edit Author: </label>
                     <input type="text"
                         className="form-control"
-                        value={year}
-                        onChange={(e) => { setYear(e.target.value) }}
+                        value={author}
+                        onChange={(e) => { setAuthor(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
-                    <label>Edit Movie Poster: </label>
+                    <label>Edit Genre: </label>
                     <input type="text"
                         className="form-control"
-                        value={poster}
-                        onChange={(e) => { setPoster(e.target.value) }}
+                        value={genre}
+                        onChange={(e) => { setGenre(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Edit Cover Image URL: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={coverImage}
+                        onChange={(e) => { setCoverImage(e.target.value) }}
                     />
                 </div>
                 <div>
-                    <input type="submit" value="Edit Movie"></input>
+                    <input type="submit" value="Edit Book" className="btn btn-primary"></input>
                 </div>
             </form>
         </div>
