@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin:admin@martinscluster.w5rtkz0.mongodb.net/DB14');
+mongoose.connect('mongodb+srv://admin:admin@cluster0.dpriq.mongodb.net/');
 
 const movieSchema = new mongoose.Schema({
   title:String,
@@ -25,7 +25,7 @@ const movieSchema = new mongoose.Schema({
   poster:String
 });
 
-const movieModel = new mongoose.model('sdfsdfsdf45',movieSchema);
+const movieModel = new mongoose.model('myBooks',movieSchema);
 
 app.get('/api/movies', async (req, res) => {
     const movies = await movieModel.find({});
@@ -35,12 +35,25 @@ app.get('/api/movies', async (req, res) => {
 app.get('/api/movie/:id', async (req ,res)=>{
   const movie = await movieModel.findById(req.params.id);
   res.json(movie);
-})
+}) //get movie by id
 
 app.put('/api/movie/:id', async (req, res)=>{
   const movie = await movieModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
   res.send(movie);
-})
+}) //update movie
+
+app.delete('/api/movie/:id', async (req, res) => {
+  
+  // Log the ID of the movie to be deleted
+  console.log('Deleting movie with ID:', req.params.id);
+  
+  // Find the movie by ID and delete it from the database
+  const movie = await movieModel.findByIdAndDelete(req.params.id);
+  
+  // Send a response indicating the movie was deleted successfully
+  res.status(200).send({ message: "Movie deleted successfully", movie });
+  
+}); //delete movie
 
 app.post('/api/movies',async (req, res)=>{
     console.log(req.body.title);
@@ -55,25 +68,3 @@ app.post('/api/movies',async (req, res)=>{
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
-
-// {
-//   "Title": "Avengers: Infinity War (server)",
-//   "Year": "2018",
-//   "imdbID": "tt4154756",
-//   "Type": "movie",
-//   "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"
-// },
-// {
-//   "Title": "Captain America: Civil War (server)",
-//   "Year": "2016",
-//   "imdbID": "tt3498820",
-//   "Type": "movie",
-//   "Poster": "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg"
-// },
-// {
-//   "Title": "World War Z (server)",
-//   "Year": "2013",
-//   "imdbID": "tt0816711",
-//   "Type": "movie",
-//   "Poster": "https://m.media-amazon.com/images/M/MV5BNDQ4YzFmNzktMmM5ZC00MDZjLTk1OTktNDE2ODE4YjM2MjJjXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
-// }
