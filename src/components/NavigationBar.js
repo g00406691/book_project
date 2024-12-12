@@ -6,7 +6,7 @@ import '../App.css'; // Ensure we import the main CSS file for custom classes
 
 const NavigationBar = () => {
   return (
-    <Navbar bg="dark" data-bs-theme="dark" className="book-navbar">
+    <Navbar className="book-navbar">
       <Container>
         <Navbar.Brand href="/" className="book-navbar-brand">
           My Book App

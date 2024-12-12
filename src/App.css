@@ -122,3 +122,98 @@ body {
 .homepage-description:hover {
   color: #2c3e50;
 }
+
+
+/* Footer styling */
+
+.app-footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  border-top: 2px solid #f39c12;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+}
+
+.footer-links a {
+  color: #f39c12;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ecf0f1;
+  text-decoration: underline;
+}
+
+/* Styling for create.js */
+
+body {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(to bottom right, #f7f2e7, #fffaf0);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.create-page {
+  min-height: 80vh;
+  padding: 2rem;
+  background: 
+      linear-gradient(
+          rgba(255, 250, 240, 0.8), 
+          rgba(255, 250, 240, 0.8)
+      ),
+      url('https://images.unsplash.com/photo-1476958526483-36efcaa80d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.create-card {
+  max-width: 500px;
+  width: 100%;
+  background-color: #ffffffcc; /* Slight transparency over the background */
+  border-radius: 10px;
+  border: none;
+}
+
+.create-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px #ccc;
+}
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 0.2rem rgba(243,156,18,.25);
+}
+
+.btn-primary {
+  background-color: #f39c12;
+  border-color: #e67e22;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e67e22;
+  border-color: #d35400;
+}
+
+.card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
