@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Books from "./books";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.css'; // Ensure our global styles are included
 
 function Read() {
   // State to hold the book data
@@ -26,10 +28,12 @@ function Read() {
   }, []);
 
   return (
-    <div>
-      <h2>Book List</h2>
-      {/* Render the Books component with the fetched data and reload function */}
-      <Books myBooks={data} ReloadData={Reload} />
+    <div className="read-page d-flex flex-column align-items-center">
+      <h2 className="read-title mt-4 mb-4">Browse Your Book Collection</h2>
+      <div className="books-container">
+        {/* Render the Books component with the fetched data and reload function */}
+        <Books myBooks={data} ReloadData={Reload} />
+      </div>
     </div>
   );
 }

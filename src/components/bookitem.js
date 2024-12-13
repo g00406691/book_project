@@ -18,24 +18,26 @@ function BookItem(props) {
     };
 
     return (
-        <div>
-            <Card>
-                <Card.Header>{props.myBook.title}</Card.Header>
-                <Card.Body>
-                    <blockquote className="blockquote mb-0">
+        <div className="book-card">
+            <Card className="h-100">
+                <Card.Header className="book-card-header">{props.myBook.title}</Card.Header>
+                <Card.Body className="book-card-body">
+                    <div className="book-image-container">
                         <img 
+                            className="book-cover-image" 
                             src={props.myBook.coverImage} 
-                            alt={props.myBook.title} 
-                            style={{ maxWidth: '200px', height: 'auto' }}
+                            alt={props.myBook.title}
                         />
-                        <footer>
-                            <strong>Author:</strong> {props.myBook.author}<br/>
-                            <strong>Genre:</strong> {props.myBook.genre}
-                        </footer>
+                    </div>
+                    <blockquote className="blockquote mb-0 mt-3">
+                        <p><strong>Author:</strong> {props.myBook.author}</p>
+                        <p><strong>Genre:</strong> {props.myBook.genre}</p>
                     </blockquote>
                 </Card.Body>
-                <Link className="btn btn-primary" to={"/edit/" + props.myBook._id}>Edit</Link>
-                <Button variant="danger" onClick={handleDelete}>Delete</Button>
+                <Card.Footer className="text-center">
+                    <Link className="btn btn-primary me-2" to={"/edit/" + props.myBook._id}>Edit</Link>
+                    <Button variant="danger" onClick={handleDelete}>Delete</Button>
+                </Card.Footer>
             </Card>
         </div>
     );
