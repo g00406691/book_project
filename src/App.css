@@ -473,18 +473,59 @@ body {
 
 /* Styles for the search bar */
 
+/* Container for the search bar to ensure proper spacing */
 .search-bar-container {
   width: 300px;
+  margin-bottom: 2rem;
 }
 
-.search-input {
-  border-radius: 5px;
+/* Wrapper to position the icon and input together */
+.search-bar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30px;
   border: 1px solid #ccc;
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.search-input:focus {
+/* Search icon style */
+.search-icon {
+  margin-right: 0.5rem;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+/* Input styling */
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  color: #333;
+  background: transparent;
+}
+
+/* Hover state for wrapper */
+.search-bar-wrapper:hover {
+  border-color: #f39c12;
+}
+
+/* Focus state for input and wrapper */
+.search-input:focus + .search-icon,
+.search-bar-wrapper:focus-within {
   border-color: #f39c12;
   box-shadow: 0 0 0 0.2rem rgba(243,156,18,.25);
+}
+
+.search-input::placeholder {
+  color: #bbb;
+}
+
+/* Slight animation on hover and focus */
+.search-bar-wrapper:hover .search-input {
+  color: #333;
 }

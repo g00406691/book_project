@@ -23,7 +23,6 @@ function Read() {
     Reload();
   }, []);
 
-  // Filter the books by title or genre based on the searchTerm
   const filteredBooks = data.filter(book => {
     const lowerSearch = searchTerm.toLowerCase();
     return (
@@ -38,13 +37,16 @@ function Read() {
       
       {/* Search Bar */}
       <div className="search-bar-container mb-4">
-        <input
-          type="text"
-          placeholder="Search by title or genre..."
-          className="form-control search-input"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+        <div className="search-bar-wrapper">
+          <span className="search-icon">&#x1F50D;</span>
+          <input
+            type="text"
+            placeholder="Search by title or genre..."
+            className="form-control search-input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
       </div>
 
       <div className="books-container">
