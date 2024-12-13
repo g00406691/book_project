@@ -23,9 +23,9 @@ function BookItem(props) {
                 <Card.Header className="book-card-header">{props.myBook.title}</Card.Header>
                 <Card.Body className="book-card-body">
                     <div className="book-image-container">
-                        <img 
-                            className="book-cover-image" 
-                            src={props.myBook.coverImage} 
+                        <img
+                            className="book-cover-image"
+                            src={props.myBook.coverImage}
                             alt={props.myBook.title}
                         />
                     </div>

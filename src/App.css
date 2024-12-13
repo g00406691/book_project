@@ -243,24 +243,83 @@ body {
 }
 
 /* Container to neatly present the list of books */
-.books-container {
-  max-width: 1200px;
-  width: 100%;
-  background-color: #ffffffcc; /* Slightly transparent white overlay */
-  border-radius: 10px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* If Books and BookItem components provide cards or a grid, this sets a nice layout:
- For example, if Books component renders BookItems in a flex or grid container. */
-.books-container .book-grid {
+.book-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
+  padding: 1rem;
 }
+
+.book-card {
+  width: 200px; /* Fixed width to keep card sizes consistent */
+  margin-bottom: 1rem;
+}
+
+.book-card .card {
+  height: 400px; /* Fixed height to ensure uniform card size */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Ensure the card body can shrink or grow as needed */
+.book-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* Fixed image container dimensions */
+.book-image-container {
+  width: 100%;
+  height: 200px; /* Adjust as preferred */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image fills the container, maintaining aspect ratio, and is cropped if needed */
+.book-cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops the image to fit the container */
+}
+
+/* Adjust typography and spacing within the card to ensure consistency */
+.book-card-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #f39c12;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.book-card-body blockquote p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+/* Footer for edit/delete buttons */
+.card-footer {
+  background-color: #fff;
+  border-top: none;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.btn {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
+}
+
 
 /* Styles for editing area */
 .edit-page {
