@@ -9,7 +9,10 @@ Welcome to My Book App, a MERN (MongoDB, Express, React, Node.js) stack applicat
 - **Delete Unwanted Books:** Remove books that you no longer wish to keep in your collection.
 - **Search and Filter:** Quickly find books by title or genre with a built-in search bar, making large collections manageable and organized.
 - **Demo**
-(I'll put gif here when created.)
+
+  
+![Book App Gif](https://github.com/user-attachments/assets/260f3e00-465f-4b46-8a19-aa71ce1d1567)
+
 
 ## Technology Stack
 
