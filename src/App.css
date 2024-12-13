@@ -37,6 +37,97 @@
   }
 }
 
+/* Overall styling */
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  background: 
+      linear-gradient(
+          rgba(255, 250, 240, 0.9), 
+          rgba(255, 250, 240, 0.9)
+      ),
+      url('https://images.unsplash.com/photo-1496104679561-38d6b994d19b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  color: #333;
+}
+
+/* Container for the homepage content */
+.homepage-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Title style */
+.homepage-title {
+  font-size: 3rem;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px #ccc;
+  margin-bottom: 1rem;
+}
+
+/* Description style */
+.homepage-description {
+  font-size: 1.25rem;
+  max-width: 600px;
+  line-height: 1.5;
+  margin: 0 auto 2rem;
+  color: #555;
+}
+
+/* Instructions card */
+.homepage-instructions {
+  max-width: 700px;
+  width: 100%;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 10px;
+  border: none;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Instructions title */
+.instructions-title {
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Instructions list */
+.instructions-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.instructions-list li {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.instructions-list li strong {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Instructions footer */
+.instructions-footer {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 1rem;
+  text-align: center;
+}
+
 /* Navigation Bar CSS */
 
 /* The navbar */
@@ -94,7 +185,7 @@ body {
           rgba(255, 250, 240, 0.8), 
           rgba(255, 250, 240, 0.8)
       ),
-      url('https://images.unsplash.com/photo-1594131396060-c7b5a7f157e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
   padding: 2rem;
@@ -170,7 +261,7 @@ body {
           rgba(255, 250, 240, 0.8), 
           rgba(255, 250, 240, 0.8)
       ),
-      url('https://images.unsplash.com/photo-1476958526483-36efcaa80d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
 }
@@ -229,7 +320,7 @@ body {
           rgba(255, 250, 240, 0.8),
           rgba(255, 250, 240, 0.8)
       ),
-      url('https://images.unsplash.com/photo-1551022378-16c19f2f15f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
   padding: 2rem;
@@ -330,7 +421,7 @@ body {
           rgba(255, 250, 240, 0.8),
           rgba(255, 250, 240, 0.8)
       ),
-      url('https://images.unsplash.com/photo-1463320898484-cdee812d0392?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
   padding: 2rem;
