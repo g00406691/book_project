@@ -62,7 +62,7 @@ Welcome to My Book App, a MERN (MongoDB, Express, React, Node.js) stack applicat
 ## Project Structure
 
 - **server.js**: Contains the Express server setup and all API endpoints.
-- **models/**: Mongoose schemas and models (e.g., `bookModel.js`) for the books.
+- **components/**: Components (e.g., `bookitem.js`) used for the books and pages of the app.
 
 ---
 
