@@ -470,3 +470,21 @@ body {
   -webkit-backdrop-filter: blur(10px);
 }
 
+
+/* Styles for the search bar */
+
+.search-bar-container {
+  width: 300px;
+}
+
+.search-input {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 0.2rem rgba(243,156,18,.25);
+}

@@ -2,37 +2,53 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Books from "./books";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css'; // Ensure our global styles are included
+import '../App.css';
 
 function Read() {
-  // State to hold the book data
   const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  // Function to reload book data from the server
   const Reload = () => {
     console.log("Reloading book data...");
     axios.get('http://localhost:4000/api/books')
       .then((response) => {
-        // Extract the books array from the response and update state
         setData(response.data.books);
       })
       .catch((error) => {
-        // Log any errors that occur during the fetch
         console.error("Error reloading data:", error);
       });
   };
 
-  // useEffect hook to load data when the component mounts
   useEffect(() => {
     Reload();
   }, []);
 
+  // Filter the books by title or genre based on the searchTerm
+  const filteredBooks = data.filter(book => {
+    const lowerSearch = searchTerm.toLowerCase();
+    return (
+      book.title.toLowerCase().includes(lowerSearch) ||
+      book.genre.toLowerCase().includes(lowerSearch)
+    );
+  });
+
   return (
     <div className="read-page d-flex flex-column align-items-center">
       <h2 className="read-title mt-4 mb-4">Browse Your Book Collection</h2>
+      
+      {/* Search Bar */}
+      <div className="search-bar-container mb-4">
+        <input
+          type="text"
+          placeholder="Search by title or genre..."
+          className="form-control search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+
       <div className="books-container">
-        {/* Render the Books component with the fetched data and reload function */}
-        <Books myBooks={data} ReloadData={Reload} />
+        <Books myBooks={filteredBooks} ReloadData={Reload} />
       </div>
     </div>
   );
