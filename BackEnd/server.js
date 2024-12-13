@@ -16,55 +16,62 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Connect to MongoDB
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin:admin@cluster0.dpriq.mongodb.net/');
-
-const movieSchema = new mongoose.Schema({
-  title:String,
-  year:String,
-  poster:String
+mongoose.connect('mongodb+srv://admin:admin@cluster0.dpriq.mongodb.net/', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
-const movieModel = new mongoose.model('myBooks',movieSchema);
-
-app.get('/api/movies', async (req, res) => {
-    const movies = await movieModel.find({});
-    res.status(200).json({movies})
+// Define a book schema instead
+const bookSchema = new mongoose.Schema({
+  title: String,
+  author: String,
+  genre: String,
+  coverImage: String
 });
 
-app.get('/api/movie/:id', async (req ,res)=>{
-  const movie = await movieModel.findById(req.params.id);
-  res.json(movie);
-}) //get movie by id
+// Naming the collection of books
+const bookModel = mongoose.model('myBooks', bookSchema);
 
-app.put('/api/movie/:id', async (req, res)=>{
-  const movie = await movieModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
-  res.send(movie);
-}) //update movie
+// GET all books
+app.get('/api/books', async (req, res) => {
+  const books = await bookModel.find({});
+  res.status(200).json({ books });
+});
 
-app.delete('/api/movie/:id', async (req, res) => {
+// GET a book by ID
+app.get('/api/book/:id', async (req, res) => {
+  const book = await bookModel.findById(req.params.id);
+  res.json(book);
+});
+
+// UPDATE a book by ID
+app.put('/api/book/:id', async (req, res) => {
+  const book = await bookModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  res.send(book);
+});
+
+// DELETE a book by ID
+app.delete('/api/book/:id', async (req, res) => {
+  console.log('Deleting book with ID:', req.params.id);
   
-  // Log the ID of the movie to be deleted
-  console.log('Deleting movie with ID:', req.params.id);
+  const book = await bookModel.findByIdAndDelete(req.params.id);
   
-  // Find the movie by ID and delete it from the database
-  const movie = await movieModel.findByIdAndDelete(req.params.id);
-  
-  // Send a response indicating the movie was deleted successfully
-  res.status(200).send({ message: "Movie deleted successfully", movie });
-  
-}); //delete movie
+  res.status(200).send({ message: "Book deleted successfully", book });
+});
 
-app.post('/api/movies',async (req, res)=>{
-    console.log(req.body.title);
-    const {title, year, poster} = req.body;
+// ADD a new book
+app.post('/api/books', async (req, res) => {
+  console.log(req.body.title);
+  const { title, author, genre, coverImage } = req.body;
 
-    const newMovie = new movieModel({title, year, poster});
-    await newMovie.save();
+  const newBook = new bookModel({ title, author, genre, coverImage });
+  await newBook.save();
 
-    res.status(201).json({"message":"Movie Added!",Movie:newMovie});
-})
+  res.status(201).json({ message: "Book Added!", Book: newBook });
+});
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });

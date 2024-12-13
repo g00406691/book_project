@@ -230,6 +230,7 @@ body {
   margin: 0.5rem 0;
 }
 
+/* Styling for the footer links */
 .footer-links a {
   color: #f39c12;
   text-decoration: none;
@@ -389,6 +390,7 @@ body {
   padding: 0.5rem;
 }
 
+/* Quote styling for the book summary */
 .book-card-body blockquote p {
   margin: 0.5rem 0;
   font-size: 0.9rem;
@@ -405,6 +407,7 @@ body {
   padding: 0.5rem;
 }
 
+/* Button styling */
 .btn {
   font-size: 0.8rem;
   padding: 0.3rem 0.6rem;
@@ -427,6 +430,7 @@ body {
   padding: 2rem;
 }
 
+/* Edit card styling */
 .edit-card {
   max-width: 500px;
   width: 100%;
@@ -435,12 +439,14 @@ body {
   border: none;
 }
 
+/* Edit title style */
 .edit-title {
   font-size: 2rem;
   color: #2c3e50;
   text-shadow: 1px 1px 2px #ccc;
 }
 
+/* Form control styling */
 .form-control {
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -448,11 +454,13 @@ body {
   font-size: 1rem;
 }
 
+/* Focus state for form control */
 .form-control:focus {
   border-color: #f39c12;
   box-shadow: 0 0 0 0.2rem rgba(243,156,18,.25);
 }
 
+/* Primary button styling */
 .btn-primary {
   background-color: #f39c12;
   border-color: #e67e22;
@@ -460,11 +468,13 @@ body {
   transition: background-color 0.3s ease;
 }
 
+/* Hover state for primary button */
 .btn-primary:hover {
   background-color: #e67e22;
   border-color: #d35400;
 }
 
+/* Card styling */
 .card {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

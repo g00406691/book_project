@@ -12,13 +12,13 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const book = { title, author, genre, coverImage };
+        const book = { title, author, genre, coverImage }; // Create a new book object
         console.log(book);
 
         // Send POST request to add a new book
         axios.post('http://localhost:4000/api/books', book)
             .then((res) => { console.log(res.data) })
-            .catch((error) => { console.error("Error adding book:", error); });
+            .catch((error) => { console.error("Error adding book:", error); }); // Log any errors
     }
 
     return (
@@ -33,7 +33,7 @@ const Create = () => {
                                 type="text"
                                 className="form-control"
                                 value={title}
-                                onChange={(e) => { setTitle(e.target.value) }}
+                                onChange={(e) => { setTitle(e.target.value) }} // Update title state
                                 placeholder="e.g. The Great Gatsby"
                             />
                         </div>
@@ -43,7 +43,7 @@ const Create = () => {
                                 type="text"
                                 className="form-control"
                                 value={author}
-                                onChange={(e) => { setAuthor(e.target.value) }}
+                                onChange={(e) => { setAuthor(e.target.value) }} // Update author state
                                 placeholder="e.g. F. Scott Fitzgerald"
                             />
                         </div>
@@ -53,7 +53,7 @@ const Create = () => {
                                 type="text"
                                 className="form-control"
                                 value={genre}
-                                onChange={(e) => { setGenre(e.target.value) }}
+                                onChange={(e) => { setGenre(e.target.value) }} // Update genre state
                                 placeholder="e.g. Classic Literature"
                             />
                         </div>
@@ -63,7 +63,7 @@ const Create = () => {
                                 type="text"
                                 className="form-control"
                                 value={coverImage}
-                                onChange={(e) => { setCoverImage(e.target.value) }}
+                                onChange={(e) => { setCoverImage(e.target.value) }} // Update coverImage state
                                 placeholder="e.g. https://example.com/cover.jpg"
                             />
                         </div>

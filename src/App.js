@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <NavigationBar />
-      <Routes>
+      <Routes> {/* Define routes for the app */}
         <Route path="/" element={<Content />} />
         <Route path="/read" element={<Read />} />
         <Route path="/create" element={<Create />} />
